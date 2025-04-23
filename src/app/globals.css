@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #2c699b;
+  --foreground: #c38f91;
 }
 
 @theme inline {
@@ -23,4 +23,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-image: url('/background_grid.avif');
+}
+
+.image {
+  background-image: url('/image_1.avif');
+  mix-blend-mode: multiply;
+  z-index: 10;
 }
