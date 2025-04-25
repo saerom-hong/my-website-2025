@@ -12,7 +12,7 @@ export default function Section() {
   const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
 
   return (
-    <div
+    <section
       ref={container}
       className="relative flex items-center justify-center h-screen overflow-hidden"
       style={{
@@ -56,6 +56,6 @@ export default function Section() {
           />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

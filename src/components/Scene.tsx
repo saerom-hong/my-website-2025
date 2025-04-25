@@ -34,7 +34,7 @@ export default function Scene() {
       for (let i = 0; i < nbOfCircles; i++) {
         const targetX = lerp(x, clientX, (1 / nbOfCircles) * i);
         const targetY = lerp(y, clientY, (1 / nbOfCircles) * i);
-        draw(targetX, targetY, 50);
+        draw(targetX, targetY, 80);
       }
     }
 
@@ -49,7 +49,7 @@ export default function Scene() {
     const ctx = canvas.current.getContext('2d');
     if (!ctx) return;
     ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.arc(x, y, radius, 0, 5 * Math.PI);
     ctx.fill();
   };
 

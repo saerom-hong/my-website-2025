@@ -14,13 +14,17 @@ export default function Intro() {
   const y = useTransform(scrollYProgress, [0, 1], ['0vh', '150vh']);
 
   return (
-    <div ref={container} className="h-screen overflow-hidden">
+    <section
+      ref={container}
+      className="h-screen overflow-hidden"
+      style={{ cursor: "url('/eraser.png'), auto" }}
+    >
       <motion.div style={{ y }} className="relative h-full">
         <main className="flex w-full h-screen items-center justify-center">
           <Heading />
           <Scene />
         </main>
       </motion.div>
-    </div>
+    </section>
   );
 }
