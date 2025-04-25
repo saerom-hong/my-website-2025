@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Background from '../../public/image_02.avif';
+import Background from '../../public/drawing_circle_02.avif';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -15,14 +15,34 @@ export default function Section() {
     <div
       ref={container}
       className="relative flex items-center justify-center h-screen overflow-hidden"
-      style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
+      style={{
+        clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)',
+      }}
     >
-      <div className="relative z-10 p-20 mix-blend-difference text-white w-full h-full flex flex-col justify-between">
+      <div className="relative z-10 p-20 mix-blend-difference text-black w-full h-full flex flex-col justify-between">
         <p className="w-[50vw] text-[2vw] self-end uppercase mix-blend-difference">
           I’ve kept learning and experimenting with new tools and ideas. You can
-          follow my learning progress [here] and see my latest projects [here].
+          follow my learning progress{' '}
+          <a
+            href="https://www.linkedin.com/in/hongsaerom/details/certifications/"
+            className="font-bold underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            [here]
+          </a>{' '}
+          and see my latest projects{' '}
+          <a
+            href="https://github.com/saerom-hong"
+            className="font-bold underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            [here]
+          </a>
+          .
         </p>
-        <p className="text-[5vw] uppercase mix-blend-difference">
+        <p className="text-[5vw] tracking-tight uppercase mix-blend-difference">
           Curiosity and Continuous Learning is My Key
         </p>
       </div>
@@ -32,7 +52,7 @@ export default function Section() {
             src={Background}
             fill
             alt="image"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: 'contain' }}
           />
         </motion.div>
       </div>

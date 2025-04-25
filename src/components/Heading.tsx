@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default function Text() {
+export default function Heading() {
   return (
-    <div className="absolute flex flex-col text-[5.5vw] uppercase w-[80vw] items-start leading-tight">
+    <div className="absolute flex flex-col text-[5vw] tracking-tighter uppercase w-[80vw] items-start leading-tight">
       <p className="font-medium">Hi, My Name is Saerom</p>
-      <p className="self-end font-bold">Front-End Engineer</p>
+      <p className="self-end font-bold">Front End Engineer</p>
+      <p className="font-medium">Originally from South Korea,</p>
       <p className="font-medium">Based in New Zealand</p>
       <p className="self-end font-bold">Portfolio@2025</p>
       <div className="flex justify-center items-end w-full translate-y-25">

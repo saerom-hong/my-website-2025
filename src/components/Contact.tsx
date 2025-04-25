@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-
-//TODO: refactoring and add actual href link
+import ContactLink from './ContactLink';
+import FooterText from './FooterText';
 
 export default function Contact() {
   const [smoothPointer, setSmoothPointer] = useState({ x: 0, y: 0 });
@@ -73,106 +73,48 @@ export default function Contact() {
 
   return (
     <div
-      className="flex flex-col justify-center items-center min-h-screen py-50 relative"
+      className="flex flex-col justify-around items-center h-screen relative"
       style={{
-        backgroundImage: "url('/background_image.avif')",
-        backgroundSize: 'cover',
+        backgroundImage: "url('/popup_image.avif')",
+        inset: '0',
+        width: '100%',
+        height: '100vh',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div
-        style={{
-          position: 'absolute',
-          backgroundImage: "url('/popup_image.avif')",
-          inset: '0',
-          width: '100%',
-          height: '100vh',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-      <svg className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+      <svg className="absolute z-10 top-0 left-0 w-full h-full pointer-events-none">
         {paths.map((path, index) => (
           <path
             key={index}
             d={path.d}
             className="trail"
             style={{
-              stroke: '#F046AA',
+              stroke: '#1A733F',
               strokeWidth: path.strokeWidth,
               fill: 'none',
             }}
           />
         ))}
       </svg>
-      <div className="relative z-10">
-        <h3 className="text-[4.5vw] uppercase text-center max-w-[70vw] leading-none mb-20">
-          Feel Free to reach me
+      <div className="relative flex flex-col items-center pt-50">
+        <h3
+          className="text-[5vw] font-bold uppercase text-center max-w-[70vw] leading-none"
+          style={{ backgroundColor: '#e30aa8' }}
+        >
+          Contact Me
         </h3>
-        <ul className="flex justify-center items-center gap-8 text-[2.5vw]">
-          <li className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
-              viewBox="0 0 24 24"
-              className="inline-block underline"
-            >
-              <path
-                d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"
-                fill="currentColor"
-              />
-            </svg>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              LinkedIn
-            </a>
-          </li>
-          <li className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
-              viewBox="0 0 24 24"
-              className="inline-block underline"
-            >
-              <path
-                d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"
-                fill="currentColor"
-              />
-            </svg>
-            <a href="mailto:your.email@example.com" className="underline">
-              Email
-            </a>
-          </li>
-          <li className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="1em"
-              height="1em"
-              viewBox="0 0 24 24"
-              className="inline-block underline"
-            >
-              <path
-                d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"
-                fill="currentColor"
-              />
-            </svg>
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              GitHub
-            </a>
-          </li>
+        <ul className="flex justify-center items-center gap-12 pt-48 pb-12 text-[2.5vw]">
+          <ContactLink link="">CV</ContactLink>
+          <ContactLink link="https://www.linkedin.com/in/hongsaerom/">
+            LinkdIn
+          </ContactLink>
+          <ContactLink link="mailto:saeromhong12@gmail.com">Email</ContactLink>
+          <ContactLink link="https://github.com/saerom-hong">
+            GitHub
+          </ContactLink>
         </ul>
+        <FooterText />
       </div>
     </div>
   );

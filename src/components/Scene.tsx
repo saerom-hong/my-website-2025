@@ -17,7 +17,7 @@ export default function Scene() {
     if (!canvas.current) return;
     const ctx = canvas.current.getContext('2d');
     if (!ctx) return;
-    ctx.fillStyle = '#2c699b';
+    ctx.fillStyle = '#5c6843';
     ctx.fillRect(0, 0, dimension.width, dimension.height);
     ctx.globalCompositeOperation = 'destination-out';
   };
