@@ -107,7 +107,6 @@ export default function Contact() {
             Contact Me
           </h3>
           <ul className="flex justify-center items-center gap-12 pt-48 pb-12 text-[2.5vw]">
-            <ContactLink link="">CV</ContactLink>
             <ContactLink link="https://www.linkedin.com/in/hongsaerom/">
               LinkdIn
             </ContactLink>

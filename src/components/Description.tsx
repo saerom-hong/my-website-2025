@@ -8,14 +8,19 @@ export default function Description() {
 
       <div className={styles.content}>
         <p className={styles.text}>
-          I started <b>learning to code by myself</b> during the pandemic, while
-          under strict lockdown in Malaysia. It was fascinating— I immediately
-          captivated by the ability to build for the web. <br />
+          I began{' '}
+          <b className={styles.boldText}>
+            teaching myself HTML, CSS, and JavaScript
+          </b>{' '}
+          during the pandemic lockdown in Malaysia and quickly developed a
+          passion for creating interactive, user-friendly web applications.{' '}
           <br />
-          After working for two years as{' '}
-          <b>a Software Engineer, Front-End Focused</b> in Germany, I&apos;ve
-          now settled in Aotearoa New Zealand,{' '}
-          <strong>seeking new opportunities to continue my journey.</strong>
+          <b className={styles.boldText}>
+            After two years working in Germany as a Front-End Engineer
+          </b>
+          , I’ve now settled in Aotearoa New Zealand, where I’m{' '}
+          <b className={styles.boldText}>seeking new opportunities</b> to
+          contribute my experience and continue growing as a Software Engineer.
         </p>
       </div>
     </section>

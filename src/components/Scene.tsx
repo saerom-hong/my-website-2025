@@ -34,7 +34,7 @@ export default function Scene() {
       for (let i = 0; i < nbOfCircles; i++) {
         const targetX = lerp(x, clientX, (1 / nbOfCircles) * i);
         const targetY = lerp(y, clientY, (1 / nbOfCircles) * i);
-        draw(targetX, targetY, 80);
+        draw(targetX, targetY, 90);
       }
     }
 

@@ -50,9 +50,16 @@ export default function Section() {
         <motion.div style={{ y }} className="relative w-full h-full">
           <Image
             src={Background}
-            fill
             alt="image"
-            style={{ objectFit: 'contain' }}
+            style={{
+              objectFit: 'contain',
+              width: '100%',
+              height: '80%',
+              position: 'absolute',
+              top: '50%',
+              left: '40%',
+              transform: 'translate(-50%, -50%)',
+            }}
           />
         </motion.div>
       </div>

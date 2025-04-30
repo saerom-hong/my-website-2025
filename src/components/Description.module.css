@@ -17,7 +17,7 @@
   background-position: center;
   background-repeat: no-repeat;
   mix-blend-mode: multiply;
-  opacity: 0.85;
+  opacity: 0.4;
   z-index: 10;
   animation: float 6s ease-in-out infinite;
 }
@@ -28,12 +28,15 @@
 }
 
 .text {
-  font-size: 3vw;
-  text-transform: uppercase;
+  font-size: 3.3vw;
   text-align: center;
   max-width: 75vw;
   line-height: 1.2;
-  color: #ff4bb8;
+  color: #0a0a0a;
+}
+
+.boldText {
+  background-color: rgba(255, 75, 184, 0.7);
 }
 
 @keyframes float {
