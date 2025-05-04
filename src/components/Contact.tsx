@@ -1,75 +1,12 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import ContactLink from './ContactLink';
 import FooterText from './FooterText';
+import useMouseTrail from '@/utils/useMouseTrail';
+import { MOUSE_TRAIL, STYLES } from '@/utils/constants';
 
 export default function Contact() {
-  const [smoothPointer, setSmoothPointer] = useState({ x: 0, y: 0 });
-  const [paths, setPaths] = useState<
-    { d: string; opacity: number; strokeWidth: number }[]
-  >([]);
-  const currentPointsRef = useRef<{ x: number; y: number }[]>([]);
-  const lastUpdateTimeRef = useRef(0);
-  const MAX_PATHS = 50; // Maximum number of paths to keep
-
-  useEffect(() => {
-    setSmoothPointer({
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
-    });
-    const handleMouseMove = (event: MouseEvent) => {
-      setSmoothPointer({
-        x: event.clientX,
-        y: event.clientY,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  useEffect(() => {
-    const updateInterval = 8;
-    let animationFrameId: number;
-
-    const updatePath = (timestamp: number) => {
-      if (timestamp - lastUpdateTimeRef.current >= updateInterval) {
-        currentPointsRef.current.push({ ...smoothPointer });
-
-        if (currentPointsRef.current.length > 1) {
-          const d = currentPointsRef.current.reduce((acc, point, i) => {
-            if (i === 0) return `M ${point.x} ${point.y}`;
-            return `${acc} L ${point.x} ${point.y}`;
-          }, '');
-
-          setPaths((prev) => {
-            const newPaths = [
-              ...prev,
-              {
-                d,
-                opacity: 0.15,
-                strokeWidth: 5,
-              },
-            ];
-            // Keep only the most recent MAX_PATHS paths
-            return newPaths.slice(-MAX_PATHS);
-          });
-        }
-
-        // Keep only the most recent points for the current path
-        if (currentPointsRef.current.length > 20) {
-          currentPointsRef.current = currentPointsRef.current.slice(-20);
-        }
-
-        lastUpdateTimeRef.current = timestamp;
-      }
-
-      animationFrameId = requestAnimationFrame(updatePath);
-    };
-
-    animationFrameId = requestAnimationFrame(updatePath);
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [smoothPointer]);
+  const { paths } = useMouseTrail();
 
   return (
     <section>
@@ -92,7 +29,7 @@ export default function Contact() {
               d={path.d}
               className="trail"
               style={{
-                stroke: '#1A733F',
+                stroke: MOUSE_TRAIL.STROKE_COLOR,
                 strokeWidth: path.strokeWidth,
                 fill: 'none',
               }}
@@ -102,7 +39,7 @@ export default function Contact() {
         <div className="relative flex flex-col items-center pt-50">
           <h3
             className="text-[5vw] font-bold uppercase text-center max-w-[70vw] leading-none"
-            style={{ backgroundColor: '#e30aa8' }}
+            style={{ backgroundColor: STYLES.CONTACT.TITLE_BG_COLOR }}
           >
             Contact Me
           </h3>

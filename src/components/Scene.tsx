@@ -1,6 +1,8 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import useWindow from '@/utils/useWindow';
+import { lerp, drawCircle, initCanvas } from '@/utils/canvasUtils';
+import { CANVAS } from '@/utils/constants';
 
 export default function Scene() {
   const { dimension } = useWindow();
@@ -8,43 +10,29 @@ export default function Scene() {
   const prevPosition = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
-    if (dimension.width > 0) {
-      init();
+    if (dimension.width > 0 && canvas.current) {
+      const ctx = canvas.current.getContext('2d');
+      if (ctx) {
+        initCanvas(ctx, dimension.width, dimension.height);
+      }
     }
   }, [dimension]);
 
-  const init = () => {
-    if (!canvas.current) return;
-    const ctx = canvas.current.getContext('2d');
-    if (!ctx) return;
-
-    ctx.fillStyle = '#5c6843';
-    ctx.fillRect(0, 0, dimension.width, dimension.height);
-
-    ctx.globalCompositeOperation = 'destination-out';
-
-    const x = dimension.width * 0.15;
-    const y = dimension.height * 0.23;
-    const radius = 100;
-
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);
-    ctx.fill();
-  };
-
-  const lerp = (x: number, y: number, a: number): number => x * (1 - a) + y * a;
-
   const manageMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const { clientX, clientY, movementX, movementY } = e;
+    const nbOfCircles =
+      Math.max(Math.abs(movementX), Math.abs(movementY)) /
+      CANVAS.DRAWING.MOVEMENT_DIVISOR;
 
-    const nbOfCircles = Math.max(Math.abs(movementX), Math.abs(movementY)) / 10;
+    if (prevPosition.current && canvas.current) {
+      const ctx = canvas.current.getContext('2d');
+      if (!ctx) return;
 
-    if (prevPosition.current != null) {
       const { x, y } = prevPosition.current;
       for (let i = 0; i < nbOfCircles; i++) {
         const targetX = lerp(x, clientX, (1 / nbOfCircles) * i);
         const targetY = lerp(y, clientY, (1 / nbOfCircles) * i);
-        draw(targetX, targetY, 90);
+        drawCircle(ctx, targetX, targetY, CANVAS.DRAWING.CIRCLE_RADIUS);
       }
     }
 
@@ -52,15 +40,6 @@ export default function Scene() {
       x: clientX,
       y: clientY,
     };
-  };
-
-  const draw = (x: number, y: number, radius: number) => {
-    if (!canvas.current) return;
-    const ctx = canvas.current.getContext('2d');
-    if (!ctx) return;
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, 5 * Math.PI);
-    ctx.fill();
   };
 
   return (
