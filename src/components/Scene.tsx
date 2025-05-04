@@ -17,9 +17,19 @@ export default function Scene() {
     if (!canvas.current) return;
     const ctx = canvas.current.getContext('2d');
     if (!ctx) return;
+
     ctx.fillStyle = '#5c6843';
     ctx.fillRect(0, 0, dimension.width, dimension.height);
+
     ctx.globalCompositeOperation = 'destination-out';
+
+    const x = dimension.width * 0.15;
+    const y = dimension.height * 0.23;
+    const radius = 100;
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.fill();
   };
 
   const lerp = (x: number, y: number, a: number): number => x * (1 - a) + y * a;

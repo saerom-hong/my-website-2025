@@ -3,7 +3,7 @@ import styles from './Description.module.css';
 
 export default function Description() {
   return (
-    <section className={styles.container}>
+    <section id="description" className={styles.container}>
       <div className={styles.imageContainer} />
 
       <div className={styles.content}>

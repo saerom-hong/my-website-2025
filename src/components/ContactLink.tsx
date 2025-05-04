@@ -27,7 +27,7 @@ export default function ContactLink({
           target: '_blank',
           rel: 'noopener noreferrer',
         })}
-        className="underline font-semibold"
+        className="underline font-semibold hover:scale-110 transition-transform"
       >
         {children}
       </a>
