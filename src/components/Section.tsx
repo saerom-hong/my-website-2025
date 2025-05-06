@@ -8,7 +8,7 @@ export default function Section() {
         clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)',
       }}
     >
-      <div className="relative z-10 p-20 mix-blend-difference text-black w-full h-full flex flex-col justify-between">
+      <div className="relative z-10 p-15 mix-blend-difference text-black w-full h-full flex flex-col justify-between">
         <p className="w-[50vw] text-[2vw] self-end uppercase mix-blend-difference">
           I have kept learning and experimenting with new tools and ideas. You
           can follow my learning progress{' '}
