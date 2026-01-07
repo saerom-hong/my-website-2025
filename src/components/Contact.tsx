@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import ContactLink from './ContactLink';
 import FooterText from './FooterText';
 import useMouseTrail from '@/utils/useMouseTrail';
@@ -22,6 +21,17 @@ export default function Contact() {
           cursor: "url('/pencil.png'), auto",
         }}
       >
+        <img
+          src="/drawing_01.avif"
+          alt=""
+          className="absolute inset-0 w-full h-full opacity-40 mix-blend-multiply pointer-events-none z-0"
+          style={{
+            imageRendering: 'auto',
+            WebkitFontSmoothing: 'antialiased',
+            backfaceVisibility: 'hidden',
+            transform: 'translateZ(0)',
+          }}
+        />
         <svg className="absolute z-10 top-0 left-0 w-full h-full pointer-events-none">
           {paths.map((path, index) => (
             <path
@@ -38,8 +48,8 @@ export default function Contact() {
         </svg>
         <div className="relative flex flex-col items-center pt-50">
           <h3
-            className="text-[5vw] font-bold uppercase text-center max-w-[70vw] leading-none"
-            style={{ backgroundColor: STYLES.CONTACT.TITLE_BG_COLOR }}
+            className="text-[4vw] font-bold uppercase text-center max-w-[90vw] leading-none"
+            style={{ backgroundColor: STYLES.CONTACT.HIGHLIGHT_COLOR }}
           >
             Contact Me
           </h3>

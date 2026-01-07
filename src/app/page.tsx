@@ -5,6 +5,7 @@ import Intro from '@/components/Intro';
 import Description from '@/components/Description';
 import Section from '@/components/Section';
 import Contact from '@/components/Contact';
+
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();

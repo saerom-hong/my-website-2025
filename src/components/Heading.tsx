@@ -14,14 +14,15 @@ export default function Heading() {
   };
 
   return (
-    <div className="absolute flex flex-col text-[5vw] tracking-tighter uppercase w-[80vw] items-start leading-tight">
-      <p className="font-medium">Hi, My Name is Saerom</p>
-      <p className="self-end font-bold">Front End Engineer</p>
-      <p className="font-medium">Originally from South Korea,</p>
-      <p className="font-medium">Based in New Zealand</p>
-      <p className="self-end font-bold">Portfolio@2025</p>
+    <div className="absolute flex flex-col tracking-tighter w-[80vw] items-start leading-tight">
+      <p className="text-[4vw] mb-5">Hi, My Name is Saerom 👋</p>
+      <p className="font-bold text-[4.5vw]">
+        Software Engineer, more focused on Frontend
+      </p>
+      <p className="text-[3.5vw] font-normal">Originally from South Korea,</p>
+      <p className="text-[3.5vw] font-normal">Based in Germany</p>
       <button
-        className="flex flex-col justify-center items-center w-full translate-y-25 text-[2vw] cursor-pointer relative z-50"
+        className="flex flex-col justify-center items-center w-full translate-y-20 text-[2vw] cursor-pointer relative z-50"
         onClick={handleScroll}
         type="button"
       >

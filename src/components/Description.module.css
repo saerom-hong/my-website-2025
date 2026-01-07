@@ -28,15 +28,19 @@
 }
 
 .text {
-  font-size: 3.3vw;
+  font-size: 2.4vw;
   text-align: center;
   max-width: 75vw;
   line-height: 1.2;
   color: #0a0a0a;
 }
 
+.link {
+  text-decoration: underline;
+}
+
 .boldText {
-  background-color: rgba(255, 75, 184, 0.7);
+  background-color: rgba(255, 75, 184, 0.5);
 }
 
 @keyframes float {
